@@ -28,7 +28,7 @@ The project is organized into several Terraform modules to facilitate modularity
 - Jenkins installed with appropriate plugins for Terraform and AWS for Automated Deployment
   and add the following credential to your jenkins account with that IDs
       - aws-access-key-id
-      - aws-secret-access-key
+  - aws-secret-access-key
       - github-token
   
 
