@@ -22,8 +22,8 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         AWS_DEFAULT_REGION    = 'us-west-2'
         GITHUB_TOKEN          = credentials('github-token')
-        AppDockerFile = './Web And App/application-tier'
-        PresentDockerFile ='./Web And App/presentation-tier'
+        AppDockerFile = './Web-And-App/application-tier'
+        PresentDockerFile ='./Web-And-App/presentation-tier'
 
         AppImageName=''
         PresentImageName=''
