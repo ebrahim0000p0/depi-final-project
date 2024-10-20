@@ -3,7 +3,7 @@ pipeline {
 
     parameters {        
         string(name: 'dockerHubUserName', defaultValue: 'userName', description: 'UserName for docker hub')
-        password(name: 'dockerHubPassword', defaultValue: 'SECRET', description: 'password for dockerhub')
+        //password(name: 'dockerHubPassword', defaultValue: 'SECRET', description: 'password for dockerhub')
         
         
         string(name: 'dockerImageNameApp', defaultValue: 'ImageName', description: 'image name for spp')
@@ -40,7 +40,10 @@ pipeline {
 
         stage('Login Docker') {
             steps {
-                sh 'docker login -u ${dockerHubUserName} -p ${dockerHubPassword}'
+                    // sh 'docker login -u ${dockerHubUserName} -p ${dockerHubPassword}'  
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+                                sh "echo $PASS | docker login -u $USER --password-stdin " 
+                            }            
             }
         }
 
